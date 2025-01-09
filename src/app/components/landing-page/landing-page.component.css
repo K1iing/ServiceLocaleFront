@@ -1,0 +1,318 @@
+body,
+html {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.boxcolor {
+  background-image: url("./assets/Bg.png"); /* Imagem de fundo */
+  width: 860px;
+  height: 900px; /* Ou qualquer altura */
+  background-attachment: fixed;
+  position: relative;
+  z-index: 1;
+}
+
+.main-container {
+  display: flex;
+  flex-wrap: nowrap; /* Impede que as seções quebrem linha */
+  height: 100vh; /* Define a altura como a altura total da tela */
+  overflow: hidden;
+}
+#landing-page {
+  flex: 1; /* Ocupa 1/3 da largura total */
+  padding: 20px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+}
+
+#landing-page h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+  margin-top: 150px;
+  margin-right: 200px;
+}
+
+#landing-page p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  color: black;
+  margin-right: 310px;
+  font-weight: normal;
+}
+.aneis {
+  background-image: url(./assets/Ellipse\ 1.png);
+  position: absolute;
+  height: 300px;
+  background-repeat: no-repeat;
+  width: 500px;
+  margin-top: 950px;
+  margin-right: 450px;
+  z-index: 10002;
+}
+
+.aneis2 {
+  background-image: url(./assets/Ellipse\ 2.png);
+  position: absolute;
+  height: 275px;
+  width: 575px;
+  transform: rotate(0deg) translateX(-20px);
+  margin-top: 904px;
+  background-repeat: no-repeat;
+  z-index: 10001;
+}
+
+.titulo {
+  position: relative;
+  z-index: 3;
+  color: white;
+  text-align: center;
+  font-size: 3rem;
+  font-family: "Poppins", sans-serif;
+  padding-right: 400px;
+}
+
+.containerh1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70%;
+}
+
+.paragrafo1 {
+  font-family: "Poppins", sans-serif;
+  color: white;
+  font-size: 1rem;
+  margin: 0%;
+  border-left: 100px;
+  font-weight: medium;
+}
+
+.buttonreadme {
+  border: 7px solid #0575e6;
+  padding: 2px 35px;
+  background-color: #0575e6;
+  color: white;
+  margin-top: 35px;
+  border-radius: 20px;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.buttonreadme:hover {
+  background-color: black;
+  border: 7px solid black; /* Muda o fundo para preto ao passar o mouse */
+  color: white; /* Muda a cor da letra para branco ao passar o mouse */
+  transform: scale(1.1); /* Aumenta o botão ligeiramente */
+}
+
+input[type="email"] {
+  padding: 10px;
+  width: 300px;
+  background-image: url(./assets/mail.png);
+  background-repeat: no-repeat;
+  text-align: left;
+  text-indent: 25px;
+  background-position: 5px 10px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  opacity: 70%;
+}
+input[type="password"] {
+  background-image: url(./assets/cadeado.png);
+  padding: 10px;
+  background-repeat: no-repeat;
+  width: 300px;
+  text-indent: 25px;
+  background-position: 11px 10px;
+  border: none; /* Remove a borda */
+  outline: none; /* Remove a linha de contorno ao clicar */
+  background-color: transparent;
+  opacity: 50%;
+}
+
+.email {
+  padding-right: 180px;
+  padding-top: 25px;
+  font-family: "Poppins", sans-serif;
+}
+
+.password {
+  padding-right: 180px;
+  padding-top: 30px;
+  font-family: "Poppins", sans-serif;
+}
+
+.buttonlogin {
+  font-family: "Poppins", sans-serif;
+  background-color: #0575e6;
+  color: white;
+  padding: 15px 150px;
+  border-radius: 50px;
+  margin-top: 30px;
+  margin-right: 130px;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.buttonlogin:hover {
+  background-color: black; /* Muda a cor de fundo para preto */
+  color: white; /* Mantém o texto branco */
+  transform: scale(1.1); /* Aumenta o botão ligeiramente */
+}
+
+.esqueceusenha {
+  margin-top: 15px;
+  margin-right: 100px;
+  transition: all 0.3s ease;
+}
+
+.esqueceusenha a {
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  opacity: 70%;
+  color: #333;
+}
+
+.esqueceusenha:hover {
+  transform: scale(1.1); /* Aumenta o botão ligeiramente */
+}
+
+@media (max-width: 480px) {
+    .titulo {
+      font-size: 50px;
+      margin-top: 100px;
+    }
+    .aneis {
+      margin-top: 960px;
+    }
+    .aneis2 {
+      margin-top: 915px;
+    }
+  
+    .paragrafo1 {
+      opacity: 0%;
+    }
+  
+    .buttonreadme {
+      margin-top: 0px;
+    }
+  
+    .main-container {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      overflow: auto;
+    }
+  
+    #landing-page h2 {
+      margin-left: 170px;
+      margin-bottom: 50px;
+    }
+  
+    #landing-page p {
+      margin-left: 280px;
+      display: block;
+      line-height: 20px;
+      opacity: 0%;
+    }
+    .buttonlogin,
+    input[type="password"],
+    input[type="email"] {
+      margin-left: 150px;
+    }
+    .esqueceusenha {
+      margin-left: 100px;
+    }
+  }
+  
+  @media (max-width: 360px) and (max-height: 740px) {
+    
+  
+    .titulo {
+      font-size: 40px;
+      margin-right: 40px;
+    }
+  
+    .buttonlogin {
+      margin-left: 140px;
+    }
+
+    
+  }
+  
+  @media (min-width: 600px) and (max-width: 1024px) {
+      .titulo {
+          font-size: 50px;
+          margin-top: 100px;
+          margin-right: 70px;
+        }
+        .aneis {
+          margin-top: 960px;
+          margin-right: 900px;
+          height: 300px;
+          width: 550px;
+          
+        }
+        .aneis2 {
+          margin-top: 960px;
+          margin-right: 600px;
+          margin-bottom: 50px;
+          height: 300px;
+          width: 500px;
+        }
+      
+      
+        .boxcolor {
+          width: 1100px;
+        }
+        .buttonreadme {
+          margin-top: 50px;
+        }
+      
+        .main-container {
+          display: flex;
+          flex-direction: column;
+          height: auto;
+          overflow: auto;
+        }
+      
+        #landing-page h2 {
+          margin-left: 170px;
+          margin-bottom: 50px;
+        }
+      
+        #landing-page p {
+          margin-left: 280px;
+          display: block;
+          line-height: 20px;
+          opacity: 0%;
+        }
+        .buttonlogin,
+        input[type="password"],
+        input[type="email"] {
+          margin-left: 150px;
+        }
+        .esqueceusenha {
+          margin-left: 100px;
+        } 
+     }
+
+     @media (min-width: 375px) {
+        #landing-page h2  {
+            border-left: 45px solid white;
+        }
+
+        .titulo {
+            margin-right: 50px;
+        }
+     }
