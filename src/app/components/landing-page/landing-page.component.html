@@ -8,7 +8,7 @@
             <div>
                 <h1 class="titulo">ClubService</h1>
                 <p class="paragrafo1">A solução que você precisa, com o atendimento que você merece.</p>
-                <button class="buttonreadme">Saiba Mais</button>
+                <button class="buttonreadme" (click)="getWithToken()">Saiba Mais</button>
             </div>
         </div>
     </div>
@@ -16,7 +16,7 @@
 </section>
 
 <section  id="landing-page" >
-    <form [formGroup]="formGroup" (ngSubmit)="receberFormulario()">
+    <form [formGroup]="formGroup" (ngSubmit)="testarLogin()" >
     <h2>Olá, Novamente!</h2>
     <p>Bem-Vindo de Volta</p>
     <div class="email">

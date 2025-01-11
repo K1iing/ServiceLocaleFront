@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 @Component({
@@ -14,7 +14,7 @@ export class LandingPageComponent {
 
   public formGroup: FormGroup;
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.formGroup = new FormGroup({
       email: new FormControl("", [Validators.email, Validators.required]),
       senha: new FormControl("", [Validators.required, Validators.maxLength(25), Validators.minLength(8)])
@@ -25,20 +25,50 @@ export class LandingPageComponent {
     this.formGroup.reset();
   }
 
-  public receberFormulario(): void {
-    const emailControl = this.formGroup.get('email');
-    const senhaControl = this.formGroup.get('senha');
-    if (emailControl && senhaControl) {
-      const nome = emailControl.value;
-      const senha = senhaControl.value;
-      console.log('Email recebido:', nome);
-      console.log("Senha recebida", senha);
-      this.limparFormulario();
-    } else {
-      console.error('O controle "email" ou a "senha" não foi encontrado ou está nulo.');
-    }
-  }
+
+  public testarLogin(): void {
+    const apiUrl = 'http://localhost:8080/auth/logar'; // URL da API
+    const loginData = {
+      email: this.formGroup.get('email')?.value,
+      password: this.formGroup.get('senha')?.value, // Mudando 'senha' para 'password'
+    };
   
+    // Configurações de cabeçalho
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+  
+    // Envia os dados de login no formato JSON e recebe a resposta como texto
+    this.http.post(apiUrl, loginData, { headers, responseType: 'text' }).subscribe({
+      next: (response) => {
+        console.log(response); 
+        localStorage.setItem('token', response); // O token será recebido como texto
+        this.limparFormulario();
+      },
+      error: (error) => {
+        console.error('Erro ao realizar login:', error);
+      },
+    });
+  }
+
+  public getWithToken(): void {
+    const apiUrl = 'http://localhost:8080/auth'; // URL da API
+  
+    // Token Bearer fornecido
+    const token = localStorage.getItem('token');
+  
+    // Configuração do cabeçalho com o Bearer token
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  
+    // Requisição GET com o token no cabeçalho
+    this.http.get(apiUrl, { headers }).subscribe({
+      next: (response) => {
+        console.log('Resposta do GET:', response);
+      },
+      error: (error) => {
+        console.error('Erro ao fazer GET:', error);
+      }
+    });
+  
+  }
 }
 
 
