@@ -8,28 +8,31 @@
             <div>
                 <h1 class="titulo">ClubService</h1>
                 <p class="paragrafo1">A solução que você precisa, com o atendimento que você merece.</p>
-                <button class="buttonreadme" (click)="semSaibaMais()">Saiba Mais</button>
+                <button class="buttonreadme">Saiba Mais</button>
             </div>
         </div>
     </div>
   </div>
 </section>
-<section  id="landing-page">
+
+<section  id="landing-page" >
+    <form [formGroup]="formGroup" (ngSubmit)="receberFormulario()">
     <h2>Olá, Novamente!</h2>
     <p>Bem-Vindo de Volta</p>
     <div class="email">
-        <input type="email"  placeholder="Endereço de Email">
+        <input [formControlName]="'email'" type="email" placeholder="Endereço de Email">
     </div>
     <div class="password">
-        <input type="password" placeholder="Sua Senha">
+        <input [formControlName]="'senha'" type="password"  placeholder="Sua Senha">
     </div>
     <div  class="botao">
-        <button (click)="alerta()" class="buttonlogin">
+        <button class="buttonlogin">
             Login
         </button>
     </div>
     <div class="esqueceusenha">
         <a href="" target="_blank">Esqueci minha senha</a>
     </div>
+    </form>
   </section>
 </div>
