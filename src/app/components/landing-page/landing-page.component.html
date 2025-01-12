@@ -8,7 +8,7 @@
             <div>
                 <h1 class="titulo">ClubService</h1>
                 <p class="paragrafo1">A solução que você precisa, com o atendimento que você merece.</p>
-                <button class="buttonreadme" (click)="getWithToken()">Saiba Mais</button>
+                <button class="buttonreadme">Saiba Mais</button>
             </div>
         </div>
     </div>
@@ -18,7 +18,12 @@
 <section  id="landing-page" >
     <form [formGroup]="formGroup" (ngSubmit)="testarLogin()" >
     <h2>Olá, Novamente!</h2>
-    <p>Bem-Vindo de Volta</p>
+    @if (!deuErro) {
+        <p class="bemvindo">Bem-Vindo de Volta</p>
+    }
+    @else {
+        <p class="error"> Ocorreu um erro ao tentar fazer login. Por favor, verifique seus dados.</p>
+    }
     <div class="email">
         <input [formControlName]="'email'" type="email" placeholder="Endereço de Email">
     </div>

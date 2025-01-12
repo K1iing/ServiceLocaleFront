@@ -96,6 +96,11 @@ html {
   font-weight: medium;
 }
 
+#landing-page .error {
+  margin-left: 150px;
+  color: red;
+}
+
 .buttonreadme {
   border: 7px solid #0575e6;
   padding: 2px 35px;
@@ -188,131 +193,180 @@ input[type="password"] {
 }
 
 @media (max-width: 480px) {
-    .titulo {
-      font-size: 50px;
-      margin-top: 100px;
-    }
-    .aneis {
-      margin-top: 960px;
-    }
-    .aneis2 {
-      margin-top: 915px;
-    }
-  
-    .paragrafo1 {
-      opacity: 0%;
-    }
-  
-    .buttonreadme {
-      margin-top: 0px;
-    }
-  
-    .main-container {
-      display: flex;
-      flex-direction: column;
-      height: auto;
-      overflow: auto;
-    }
-  
-    #landing-page h2 {
-      margin-left: 170px;
-      margin-bottom: 50px;
-    }
-  
-    #landing-page p {
-      margin-left: 280px;
-      display: block;
-      line-height: 20px;
-      opacity: 0%;
-    }
-    .buttonlogin,
-    input[type="password"],
-    input[type="email"] {
-      margin-left: 150px;
-    }
-    .esqueceusenha {
-      margin-left: 100px;
-    }
+  .titulo {
+    font-size: 50px;
+    margin-top: 100px;
+  }
+  .aneis {
+    margin-top: 960px;
+  }
+  .aneis2 {
+    margin-top: 915px;
+  }
+
+  .paragrafo1 {
+    opacity: 0%;
+  }
+
+  .buttonreadme {
+    margin-top: 0px;
+  }
+
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    overflow: auto;
+  }
+
+  #landing-page h2 {
+    margin-left: 170px;
+    margin-bottom: 50px;
+  }
+
+  #landing-page p {
+    margin-left: 280px;
+    display: block;
+    line-height: 20px;
+    opacity: 0%;
+  }
+
+  #landing-page .error {
+    color: red;
+    text-align: center; 
+    opacity: 1; 
+    max-width: 80%; 
+    padding-left: 105px; 
+    margin: 0; 
+    margin-left: 10px;
+    line-height: 1.5;
+    font-size: 15px;
+  }
+
+  .buttonlogin,
+  input[type="password"],
+  input[type="email"] {
+    margin-left: 150px;
+  }
+  .esqueceusenha {
+    margin-left: 100px;
+  }
+}
+
+@media (max-width: 360px) and (max-height: 740px) {
+  .titulo {
+    font-size: 40px;
+    margin-right: 40px;
+  }
+
+  .buttonlogin {
+    margin-left: 140px;
+  }
+
+  #landing-page .error {
+    color: red;
+    text-align: center; 
+    opacity: 1; 
+    max-width: 80%; 
+    padding-left: 105px; 
+    margin: 0; 
+    margin-left: 10px;
+    line-height: 1.5;
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1024px) {
+  .titulo {
+    font-size: 50px;
+    margin-top: 100px;
+    margin-right: 70px;
+  }
+  .aneis {
+    margin-top: 960px;
+    margin-right: 900px;
+    height: 300px;
+    width: 550px;
+  }
+  .aneis2 {
+    margin-top: 960px;
+    margin-right: 600px;
+    margin-bottom: 50px;
+    height: 300px;
+    width: 500px;
+  }
+
+  .boxcolor {
+    width: 1100px;
+  }
+  .buttonreadme {
+    margin-top: 50px;
+  }
+
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    overflow: auto;
+  }
+
+  #landing-page h2 {
+    margin-left: 170px;
+    margin-bottom: 50px;
+  }
+
+  #landing-page p {
+    margin-left: 280px;
+    display: block;
+    line-height: 20px;
+    opacity: 0%;
+  }
+  .buttonlogin,
+  input[type="password"],
+  input[type="email"] {
+    margin-left: 150px;
+  }
+  .esqueceusenha {
+    margin-left: 100px;
+  }
+
+  #landing-page .error {
+    color: red;
+    text-align: center; 
+    opacity: 1; 
+    max-width: 80%; 
+    padding-left: 105px; 
+    margin: 0; 
+    margin-left: 10px;
+    line-height: 1.5;
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 375px) {
+  #landing-page h2 {
+    border-left: 45px solid white;
   }
   
-  @media (max-width: 360px) and (max-height: 740px) {
-    
-  
-    .titulo {
-      font-size: 40px;
-      margin-right: 40px;
-    }
-  
-    .buttonlogin {
-      margin-left: 140px;
-    }
-
-    
+  #landing-page .error {
+    color: red;
+    text-align: center; 
+    opacity: 1; 
+    max-width: 80%; 
+    padding-left: 105px; 
+    margin: 0; 
+    margin-left: 10px;
+    line-height: 1.5;
+    font-size: 15px;
   }
-  
-  @media (min-width: 600px) and (max-width: 1024px) {
-      .titulo {
-          font-size: 50px;
-          margin-top: 100px;
-          margin-right: 70px;
-        }
-        .aneis {
-          margin-top: 960px;
-          margin-right: 900px;
-          height: 300px;
-          width: 550px;
-          
-        }
-        .aneis2 {
-          margin-top: 960px;
-          margin-right: 600px;
-          margin-bottom: 50px;
-          height: 300px;
-          width: 500px;
-        }
-      
-      
-        .boxcolor {
-          width: 1100px;
-        }
-        .buttonreadme {
-          margin-top: 50px;
-        }
-      
-        .main-container {
-          display: flex;
-          flex-direction: column;
-          height: auto;
-          overflow: auto;
-        }
-      
-        #landing-page h2 {
-          margin-left: 170px;
-          margin-bottom: 50px;
-        }
-      
-        #landing-page p {
-          margin-left: 280px;
-          display: block;
-          line-height: 20px;
-          opacity: 0%;
-        }
-        .buttonlogin,
-        input[type="password"],
-        input[type="email"] {
-          margin-left: 150px;
-        }
-        .esqueceusenha {
-          margin-left: 100px;
-        } 
-     }
 
-     @media (min-width: 375px) {
-        #landing-page h2  {
-            border-left: 45px solid white;
-        }
+  .titulo {
+    margin-right: 50px;
+  }
+}
 
-        .titulo {
-            margin-right: 50px;
-        }
-     }
+@media(min-width: 1280px) {
+  #landing-page .error {
+    padding: 0;
+  }
+}
