@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -14,7 +16,7 @@ export class LandingPageComponent {
 
   public formGroup: FormGroup;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     this.formGroup = new FormGroup({
       email: new FormControl("", [Validators.email, Validators.required]),
       senha: new FormControl("", [Validators.required, Validators.maxLength(25), Validators.minLength(8)])
@@ -38,13 +40,14 @@ export class LandingPageComponent {
   
     // Envia os dados de login no formato JSON e recebe a resposta como texto
     this.http.post(apiUrl, loginData, { headers, responseType: 'text' }).subscribe({
-      next: (response) => {
-        console.log(response); 
-        localStorage.setItem('token', response); // O token será recebido como texto
+      next: (response) => { 
+        localStorage.setItem('token', response);
+        this.router.navigate(['/home']);  // O token será recebido como texto
         this.limparFormulario();
       },
       error: (error) => {
         console.error('Erro ao realizar login:', error);
+        this.limparFormulario();
       },
     });
   }
