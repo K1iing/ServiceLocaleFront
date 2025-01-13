@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -20,7 +21,7 @@ export class LandingPageComponent {
 
   public deuErro: boolean = false;
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router, private authService: AuthService) {
     this.formGroup = new FormGroup({
       email: new FormControl('', [Validators.email, Validators.required]),
       senha: new FormControl('', [
@@ -50,9 +51,9 @@ export class LandingPageComponent {
       .post(apiUrl, loginData, { headers, responseType: 'text' })
       .subscribe({
         next: (response) => {
-          localStorage.setItem('token', response);
-          this.router.navigate(['/home']); // O token será recebido como texto
-          this.limparFormulario();
+          this.authService.setToken(response)
+          this.router.navigate(['/home']);
+          console.log(this.authService.getToken()); // O token será recebido como texto
         },
         error: (error) => {
           console.error('Erro ao realizar login:', error);
@@ -81,4 +82,5 @@ export class LandingPageComponent {
       },
     });
   }
+
 }
