@@ -192,6 +192,23 @@ input[type="password"] {
   transform: scale(1.1); /* Aumenta o botão ligeiramente */
 }
 
+.cadastrar a {
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  opacity: 70%;
+  color: #333;
+}
+
+.cadastrar {
+  transition: all 0.3s ease;
+  margin-right: 100px;
+  margin-top: 8px;
+}
+
+.cadastrar:hover {
+  transform: scale(1.1); 
+}
+
 @media (max-width: 480px) {
   .titulo {
     font-size: 50px;

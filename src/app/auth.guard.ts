@@ -2,11 +2,14 @@ import { inject } from '@angular/core';
 import { CanActivateFn } from '@angular/router';
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
+import { ActivatedRouteSnapshot } from '@angular/router';
 
-export const authGuard: CanActivateFn = (route, state) => {
+export const authGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state) => {
 
   const authService = inject(AuthService); // Injeta o serviço de autenticação
   const router = inject(Router);// Injeta o roteador
+
+  
 
   // Verifica se o usuário está autenticado
   if (authService.isAuthenticated()) {
