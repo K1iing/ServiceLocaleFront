@@ -99,14 +99,18 @@
   margin-right: 1100px;
   margin-top: 510px;
   z-index: 10001;
+  
 }
 
 .confirmacaosenha {
   background-color: #8098f9;
   border-color: #8098f9;
   opacity: 60%;
-  padding: 10px 20px;
+  padding: 10px 30px;
   border-radius: 10px;
+  background-image: url(./assets/senha.svg);
+  background-repeat: no-repeat;
+  background-position: 10px 16px;
 }
 
 .confirmacaosenha::placeholder {
@@ -118,9 +122,12 @@
 .senha {
   background-color: #8098f9;
   opacity: 60%;
-  padding: 10px 20px;
+  padding: 10px 30px;
   border-radius: 10px;
   border-color: #8098f9;
+  background-image: url(./assets/senha.svg);
+  background-repeat: no-repeat;
+  background-position: 10px 16px;
 }
 
 .senha::placeholder {
@@ -134,8 +141,11 @@
   background-color: #8098f9;
   border-color: #8098f9;
   opacity: 60%;
-  padding: 10px 20px;
+  padding: 10px 30px;
   border-radius: 10px;
+  background-image: url(./assets/email.svg);
+  background-repeat: no-repeat;
+  background-position: 10px 16px;
 }
 
 .email::placeholder {
@@ -148,8 +158,11 @@
   background-color: #8098f9;
   border-color: #8098f9;
   opacity: 60%;
-  padding: 10px 20px;
+  padding: 10px 30px;
   border-radius: 10px;
+  background-image: url(./assets/person.svg);
+  background-repeat: no-repeat;
+  background-position: 10px 15px;
 }
 
 .nome::placeholder {
@@ -163,8 +176,12 @@
   background-color: #8098f9;
   border-color: #8098f9;
   opacity: 60%;
-  padding: 10px 20px;
+  padding: 10px 30px;
   border-radius: 10px;
+  background-image: url(./assets/telefone.svg);
+  background-repeat: no-repeat;
+  background-position: 10px 16px;
+  
 }
 
 .telefone::placeholder {
