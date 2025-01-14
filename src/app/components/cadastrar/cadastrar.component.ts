@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './cadastrar.component.css'
 })
 export class CadastrarComponent {
-
+  
 }

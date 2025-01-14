@@ -214,6 +214,9 @@ input[type="password"] {
     font-size: 50px;
     margin-top: 100px;
   }
+  .cadastrar {
+    margin-left: 100px;
+  }
   .aneis {
     margin-top: 960px;
   }
@@ -301,6 +304,11 @@ input[type="password"] {
     margin-top: 100px;
     margin-right: 70px;
   }
+
+  .cadastrar {
+    margin-left: 100px;
+  }
+
   .aneis {
     margin-top: 960px;
     margin-right: 900px;
