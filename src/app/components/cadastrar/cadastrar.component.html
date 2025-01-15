@@ -48,7 +48,7 @@
             />
           </div>
           <div class="termoscontainer">
-            <input class="caixatermos" type="checkbox" name="" id="" />
+            <input [formControl]="$any(form).controls['termos']" class="caixatermos" type="checkbox" name="" id="" />
             <p class="paragrafotermos">Aceito os termos de politicas de uso</p>
           </div>
           <div>
