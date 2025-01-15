@@ -3,21 +3,29 @@
     
     <div class="background">
         <div class="aneis2"></div>
-      <form action="" class="formcontainer">
+      <form [formGroup]="form"  (ngSubmit)="testarCadastro()"action="" class="formcontainer">
         <div class="box">
           <h1 class="registrarh1">Crie sua conta!</h1>
+          @if(cadastroError) {
+            <p class="paragrafo2">Ocorreu um erro com os campos.</p>
+          }  
+          @if(cadastroSucesso) {
+            <p class="paragrafo3">Cadastro realizado com sucesso!</p>
+          }
+          
           <p class="paragrafo1">
             Junte-se a uma comunidade de milhares de pessoas que já estão
             aproveitando nossos serviços.
           </p>
           <div>
-            <input type="text" class="nome" placeholder="Digite seu nome" />
+            <input type="text" [formControlName]="'nome'" class="nome" placeholder="Digite seu nome" />
           </div>
           <div>
-            <input type="email" class="email" placeholder="Digite seu email" />
+            <input [formControlName]="'email'" type="email" class="email" placeholder="Digite seu email" />
           </div>
           <div>
             <input
+            [formControlName]="'telefone'"
               type="text"
               class="telefone"
               placeholder="Digite seu telefone"
@@ -25,6 +33,7 @@
           </div>
           <div>
             <input
+            [formControlName]="'senha'"
               type="password"
               class="senha"
               placeholder="Digite sua senha"
@@ -32,6 +41,7 @@
           </div>
           <div>
             <input
+            [formControlName]="'confirmacaosenha'"
               type="password"
               class="confirmacaosenha"
               placeholder="Confirme sua senha"
