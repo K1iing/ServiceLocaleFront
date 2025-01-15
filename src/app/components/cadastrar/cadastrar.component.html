@@ -5,6 +5,9 @@
         <div class="aneis2"></div>
       <form [formGroup]="form"  (ngSubmit)="testarCadastro()"action="" class="formcontainer">
         <div class="box">
+          <div class="sair">
+            <a href="/">Home</a>
+          </div>
           <h1 class="registrarh1">Crie sua conta!</h1>
           @if(cadastroError) {
             <p class="paragrafo2">Ocorreu um erro com os campos.</p>

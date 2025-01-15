@@ -18,6 +18,31 @@ html, body {
   overflow: hidden;
 
 }
+
+.sair {
+  margin: 0;
+
+  z-index: 10001;
+  transform: scale(1.1);
+  font-size: 12px;
+}
+
+.sair a {
+  text-decoration: none;
+  color: white;
+  border-radius: 10px;
+  background-color: #0575e6;
+  padding: 5px 20px;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.sair a:hover {
+  background-color: black; /* Muda a cor de fundo para preto */
+  color: white;
+}
+
+
 .paragrafo2 {
   color: red;
   margin: 0;
