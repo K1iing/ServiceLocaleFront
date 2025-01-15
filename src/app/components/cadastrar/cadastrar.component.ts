@@ -44,7 +44,7 @@ export class CadastrarComponent {
         Validators.minLength(8),
         Validators.maxLength(25),
       ]),
-      termos: new FormControl(false, [Validators.requiredTrue])
+      termos: new FormControl(false, [Validators.requiredTrue]),
     });
   }
 
@@ -55,7 +55,7 @@ export class CadastrarComponent {
   public testarCadastro(): void {
     if (
       this.form.valid &&
-      this.form.get('senha')?.value === this.form.get('confirmacaosenha')?.value  
+      this.form.get('senha')?.value === this.form.get('confirmacaosenha')?.value
     ) {
       const cadastroDataCliente = {
         nome: this.form.get('nome')?.value,
@@ -84,34 +84,31 @@ export class CadastrarComponent {
           responseType: 'text',
         })
         .subscribe({
-          next: (response) => {
-            console.log(response);
+          next: () => {
             this.clienteCadastro = true;
           },
           error: (error) => {
             console.log(error, console.log('Deu erro no cliente'));
           },
-        }).add(() => {
-          
-          if(this.clienteCadastro) {
-            this.http
-            .post(apiUrlAutenticacao, cadastroDataAutenticacao, {
-              headers,
-              responseType: 'text',
-            })
-            .subscribe({
-              next: (response) => {
-                console.log(response);
-                this.cadastroSucesso = true;
-                this.cadastroError = false;
-                
-              },
-              error: (error) => {
-                console.log(error, console.log('Deu erro na autenticação'));
-              },
-            });
-          }
         })
+        .add(() => {
+          if (this.clienteCadastro) {
+            this.http
+              .post(apiUrlAutenticacao, cadastroDataAutenticacao, {
+                headers,
+                responseType: 'text',
+              })
+              .subscribe({
+                next: () => {
+                  this.cadastroSucesso = true;
+                  this.cadastroError = false;
+                },
+                error: (error) => {
+                  console.log(error, console.log('Deu erro na autenticação'));
+                },
+              });
+          }
+        });
     } else {
       this.cadastroError = true;
       this.cadastroSucesso = false;
