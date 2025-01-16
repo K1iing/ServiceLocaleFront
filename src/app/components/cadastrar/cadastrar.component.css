@@ -1,10 +1,11 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%; /* Garante que o body tenha altura total */
-    overflow: hidden; /* Remove rolagem */
-  }
-  
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Garante que o body tenha altura total */
+  overflow: hidden; /* Remove rolagem */
+}
+
 .background {
   background-image: url("./assets/Bg.png"); /* Imagem de fundo */
   width: 100%;
@@ -16,15 +17,14 @@ html, body {
   justify-content: center; /* Centraliza horizontalmente */
   align-items: center; /* Centraliza verticalmente */
   overflow: hidden;
-
 }
 
 .sair {
   margin: 0;
-
   z-index: 10001;
   transform: scale(1.1);
   font-size: 12px;
+  margin-right: 10px;
 }
 
 .sair a {
@@ -42,7 +42,6 @@ html, body {
   color: white;
 }
 
-
 .paragrafo2 {
   color: red;
   margin: 0;
@@ -55,7 +54,7 @@ html, body {
 
 .box {
   width: 600px;
-  height: 600px; /* Define uma largura fixa */
+  height: 650px; /* Define uma largura fixa */
   padding: 20px; /* Define o espaçamento interno */
   background-color: white; /* Fundo branco */
   border-radius: 8px; /* Bordas arredondadas */
@@ -127,7 +126,7 @@ html, body {
   background-repeat: no-repeat;
   width: 500px;
   transform: rotate(15deg) translateX(-0px);
-  
+
   z-index: 10002;
 }
 
@@ -136,13 +135,12 @@ html, body {
   position: absolute;
   height: 100%;
   width: 100%;
-  
+
   transform: rotate(0deg) translateX(-20px);
   z-index: 1;
-  
 }
 .formcontainer {
-    z-index: 2;
+  z-index: 2;
 }
 .confirmacaosenha {
   background-color: #8098f9;
@@ -223,7 +221,6 @@ html, body {
   background-image: url(./assets/telefone.svg);
   background-repeat: no-repeat;
   background-position: 10px 16px;
-  
 }
 
 .telefone::placeholder {
@@ -231,4 +228,42 @@ html, body {
   color: #2d31a6;
   border: none;
   text-align: left;
+}
+
+@media(max-width: 480px) {
+  .box {
+    width: 350px;
+    height: 700px;
+  }
+  .cadastrar {
+    padding: 15px 110px;
+  }
+  .caixatermos {
+    margin: 0;
+    margin-left: 0px;
+    
+  }
+  .paragrafotermos {
+    font-size: 15px;
+  }
+  
+}
+
+@media(max-width: 375px) {
+  .box {
+    width: 350px;
+    height: 650px;
+  }
+  .cadastrar {
+    padding: 15px 110px;
+  }
+  .caixatermos {
+    margin: 0;
+    margin-left: 0px;
+    
+  }
+  .paragrafotermos {
+    font-size: 15px;
+  }
+  
 }
