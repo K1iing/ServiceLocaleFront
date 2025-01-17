@@ -50,7 +50,7 @@
     opacity: 100%;
     padding: 10px 30px;
     border-radius: 10px;
-    margin-top: 50px;
+    margin-top: 20px;
     background-image: url(./assets/email.svg);
     background-repeat: no-repeat;
     background-position: 10px 16px;
@@ -65,7 +65,7 @@
   border-radius: 15px;
   color: white;
   transition: all 0.3s ease;
-  margin-top: 10px;
+  margin-top: 30px;
 }
 
 .botaosubmit:hover {
@@ -92,4 +92,22 @@
   .sair a:hover {
     background-color: black; /* Muda a cor de fundo para preto */
     color: white;
+}
+
+.emailerror {
+  color: red;
+  margin-top: 10px;
+  font-family: "Poppins", sans-serif;
+}
+
+.emailSucess {
+  color: green;
+  margin-top: 10px;
+  font-family: "Poppins", sans-serif;
+}
+
+.checandoemail {
+  color: blue;
+  margin-top: 10px;
+  font-family: "Poppins", sans-serif;
 }

@@ -6,8 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
-import { AuthService } from '../../auth.service';
+
 
 @Component({
   selector: 'app-cadastrar',
@@ -23,8 +22,7 @@ export class CadastrarComponent {
 
   constructor(
     private http: HttpClient,
-    private route: Router,
-    private auth: AuthService
+
   ) {
     this.form = new FormGroup({
       nome: new FormControl('', [Validators.required, Validators.minLength(4)]),
