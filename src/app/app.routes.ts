@@ -4,6 +4,7 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 import { authGuard } from './auth.guard';
 import { CadastrarComponent } from './components/cadastrar/cadastrar.component';
 import { EsquecisenhaComponent } from './components/esquecisenha/esquecisenha.component';
+import { TokentrueComponent } from './components/tokentrue/tokentrue.component';
 
 export const routes: Routes = [
   {
@@ -11,10 +12,13 @@ export const routes: Routes = [
     component: AtendimentoshomeComponent,
     canActivate: [authGuard],
   },
-
   {
     path: 'cadastrar',
     component: CadastrarComponent, // Rota liberada para todos, sem authGuard
+  },
+  {
+    path: 'token',
+    component: TokentrueComponent,
   },
   {
     path: 'recuperarsenha',
