@@ -6,6 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-esquecisenha',
@@ -21,7 +22,7 @@ export class EsquecisenhaComponent {
   checandoEmail: boolean = false;
   
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     this.form = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(30)])
     });
@@ -51,11 +52,17 @@ export class EsquecisenhaComponent {
 
       this.http.post('http://localhost:8080/email', loginData, {headers, responseType: 'text'} ).subscribe({
         next: (response) => {
-          console.log('Email enviado com sucesso:', response);
+          console.log(response);
+          const email = response.split('para ')[1]?.trim();
+          console.log(email);
           this.limparFormulario();
           this.formularioSucess = true;
           this.checandoEmail = false;
           this.formularioError = false;
+          
+          localStorage.setItem('emailToken', email);
+          this.router.navigate(['/token']);
+
         },
         error: (error) => {
           console.error('Erro ao enviar email:', error);
