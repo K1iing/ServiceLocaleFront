@@ -1,11 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -16,42 +11,55 @@ import { Router } from '@angular/router';
 })
 export class TokentrueComponent {
   public form: FormGroup;
+  deuErro = false;
+  estaVazio = false;
 
   constructor(private http: HttpClient, private route: Router) {
     this.form = new FormGroup({
-      token: new FormControl('', [
-        Validators.required,
-        Validators.minLength(36),
-        Validators.maxLength(37),
-      ]),
+      token: new FormControl(''),
     });
   }
 
+  limparFormulario() {
+    this.form.reset();
+  }
+
+
   testarToken() {
     if (this.form.valid) {
-
+      
       const tokenData = {
-        token: this.form.get('token')?.value
-      } 
+        token: this.form.get('token')?.value,
+      };
 
-      console.log(tokenData);
+      if (!tokenData.token || tokenData.token.trim() === '') {
+        this.estaVazio = true;
+        return;
+      }
 
       const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-      this.http 
-        .post(
-          'http://localhost:8080/email/postToken',
-          tokenData,
-          {
-            headers,
-            responseType: 'text',
-          }
-        )
+      this.http
+        .post('http://localhost:8080/email/postToken', tokenData, {
+          headers,
+          responseType: 'text',
+        })
         .subscribe({
-          next: (response: string) => console.log(response),
-
-          error: (response: string) => console.log(response),
+          next: (response) => {
+            if (response === 'Token validado com sucesso') {
+              localStorage.setItem('token', tokenData.token);
+              this.route.navigate(['/novaSenha']);
+            }
+          },
+          error: () => {
+            console.error('Erro ao enviar email:');
+            this.deuErro = true;
+            this.estaVazio = false;
+            this.limparFormulario();
+          },
         });
+    } else {
+      this.estaVazio = true;
     }
   }
 }

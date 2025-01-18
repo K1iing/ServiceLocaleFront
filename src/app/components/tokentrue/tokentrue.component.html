@@ -1,18 +1,23 @@
 <div>
-    <section>
-      <div class="background">
-        <div class="aneis2"></div>
-        <div class="box">
-          <form action="" [formGroup]="form" (ngSubmit)="testarToken()">
+  <section>
+    <div class="background">
+      <div class="aneis2"></div>
+      <div class="box">
+        <form action="" [formGroup]="form" (ngSubmit)="testarToken()">
           <div>
             <h1 class="esqueceusenha">Validação de Token</h1>
           </div>
           <div>
-            <p class="digiteemail">
-              Digite seu token abaixo!
-            </p>
+            <p class="digiteemail">Digite seu token abaixo!</p>
           </div>
-         
+          <div>
+            @if (deuErro) {
+                <p class="deuerro">Token invalido ou expirado!</p>
+            }
+            @if (estaVazio) {
+                <p class="vazio">Token vazio</p>
+            }
+          </div>
           <div>
             <input
               [formControlName]="'token'"
@@ -25,8 +30,7 @@
             <input class="botaosubmit" type="submit" value="Enviar Token" />
           </div>
         </form>
-        </div>
       </div>
-    </section>
-  </div>
-  
+    </div>
+  </section>
+</div>
