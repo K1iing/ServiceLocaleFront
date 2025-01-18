@@ -19,6 +19,7 @@ export const routes: Routes = [
   {
     path: 'token',
     component: TokentrueComponent,
+    canActivate: [authGuard],
   },
   {
     path: 'recuperarsenha',

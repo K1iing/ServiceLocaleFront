@@ -9,7 +9,10 @@ export const authGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state) =
   const authService = inject(AuthService); // Injeta o serviço de autenticação
   const router = inject(Router);// Injeta o roteador
 
-  
+  if(localStorage.getItem('emailToken')) {
+    localStorage.removeItem('emailToken');
+    return true;
+  }
 
   // Verifica se o usuário está autenticado
   if (authService.isAuthenticated()) {
