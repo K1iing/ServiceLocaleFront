@@ -29,7 +29,10 @@ export class TokentrueComponent {
 
   testarToken() {
     if (this.form.valid) {
-      const tokenData = this.form.get('token')?.value;
+
+      const tokenData = {
+        token: this.form.get('token')?.value
+      } 
 
       console.log(tokenData);
 
@@ -37,8 +40,8 @@ export class TokentrueComponent {
 
       this.http 
         .post(
-          'http://localhost:8080/postToken',
-          JSON.stringify(tokenData),
+          'http://localhost:8080/email/postToken',
+          tokenData,
           {
             headers,
             responseType: 'text',
@@ -46,6 +49,7 @@ export class TokentrueComponent {
         )
         .subscribe({
           next: (response: string) => console.log(response),
+
           error: (response: string) => console.log(response),
         });
     }
