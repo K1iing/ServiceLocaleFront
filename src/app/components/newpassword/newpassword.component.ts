@@ -6,6 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-newpassword',
@@ -18,8 +19,9 @@ export class NewpasswordComponent {
   public deuErro: boolean = false;
   public deuCerto: boolean = false;
   public campoVazio: boolean = false;
+  public desabilitar: boolean = false;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     this.form = new FormGroup({
       senha: new FormControl('', [
         Validators.required,
@@ -34,9 +36,11 @@ export class NewpasswordComponent {
     });
   }
 
-  limparFormulario() {
-    this.form.reset();
-  }
+navegarComAtraso() {
+  setTimeout(() => {
+    this.router.navigate(['/']);
+  }, 4000);
+}
 
   testarConfirmacaoSenha() {
 
@@ -52,8 +56,6 @@ export class NewpasswordComponent {
       newPassword: senhaData
     }
 
-    console.log(dados);
-
     if (this.form.valid) {
 
       const headers = new HttpHeaders().set('Content-Type', 'application/json');
@@ -68,7 +70,8 @@ export class NewpasswordComponent {
             this.deuErro = false;
             this.deuCerto = true;
             this.campoVazio = false;
-            this.limparFormulario();
+            this.desabilitar = true;
+            this.navegarComAtraso();
 
           },
           error:(response) => {
@@ -76,10 +79,16 @@ export class NewpasswordComponent {
             this.deuErro = true;
             this.deuCerto = false;
             this.campoVazio = false;
+
           }  
           
         })
       }
+    } else {
+      this.campoVazio = true;
+      this.deuCerto = false;
+      this.deuCerto = false;
     }
+
   }
 }
