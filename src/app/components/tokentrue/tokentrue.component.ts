@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-tokentrue',
@@ -14,7 +15,7 @@ export class TokentrueComponent {
   deuErro = false;
   estaVazio = false;
 
-  constructor(private http: HttpClient, private route: Router) {
+  constructor(private http: HttpClient, private route: Router, private auth: AuthService) {
     this.form = new FormGroup({
       token: new FormControl(''),
     });
@@ -27,13 +28,14 @@ export class TokentrueComponent {
 
   testarToken() {
     if (this.form.valid) {
-      
+
       const tokenData = {
         token: this.form.get('token')?.value,
       };
 
       if (!tokenData.token || tokenData.token.trim() === '') {
         this.estaVazio = true;
+        this.deuErro = false;
         return;
       }
 
@@ -47,8 +49,10 @@ export class TokentrueComponent {
         .subscribe({
           next: (response) => {
             if (response === 'Token validado com sucesso') {
-              localStorage.setItem('token', tokenData.token);
-              this.route.navigate(['/novaSenha']);
+              localStorage.setItem('tokenTrue', tokenData.token);
+              localStorage.setItem('novaSenha', tokenData.token);
+              this.route.navigate(['/novasenha'])
+              
             }
           },
           error: () => {
@@ -59,7 +63,8 @@ export class TokentrueComponent {
           },
         });
     } else {
-      this.estaVazio = true;
+      
+      this.deuErro = true;
     }
   }
 }
