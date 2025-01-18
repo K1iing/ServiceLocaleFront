@@ -3,7 +3,7 @@
       <div class="background">
         <div class="aneis2"></div>
         <div class="box">
-          <form action="">
+          <form action="" [formGroup]="form" (ngSubmit)="testarToken()">
           <div>
             <h1 class="esqueceusenha">Validação de Token</h1>
           </div>
@@ -15,7 +15,7 @@
          
           <div>
             <input
-              
+              [formControlName]="'token'"
               class="enderecoinput"
               type="text"
               placeholder="Token"
