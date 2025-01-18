@@ -5,7 +5,7 @@ import { authGuard } from './auth.guard';
 import { CadastrarComponent } from './components/cadastrar/cadastrar.component';
 import { EsquecisenhaComponent } from './components/esquecisenha/esquecisenha.component';
 import { TokentrueComponent } from './components/tokentrue/tokentrue.component';
-import { NewpasswordComponent } from './newpassword/newpassword.component';
+import { NewpasswordComponent } from './components/newpassword/newpassword.component';
 
 export const routes: Routes = [
   {
@@ -15,22 +15,22 @@ export const routes: Routes = [
   },
   {
     path: 'cadastrar',
-    component: CadastrarComponent, // Rota liberada para todos, sem authGuard
+    component: CadastrarComponent,
   },
   {
     path: 'token',
     component: TokentrueComponent,
-    // canActivate: [authGuard],
+    canActivate: [authGuard],
   },
   {
     path: 'recuperarsenha',
-    component: EsquecisenhaComponent, // Rota liberada para todos, sem authGuard
+    component: EsquecisenhaComponent, 
   },
 
   {
     path: 'novasenha',
     component: NewpasswordComponent,
-    // canActivate: [authGuard],
+    canActivate: [authGuard],
   },
 
   { path: '', component: LandingPageComponent },

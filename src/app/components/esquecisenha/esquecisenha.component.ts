@@ -61,6 +61,7 @@ export class EsquecisenhaComponent {
           this.formularioError = false;
           
           localStorage.setItem('emailToken', email);
+          localStorage.setItem('emailEnviar', email);
           this.router.navigate(['/token']);
 
         },
