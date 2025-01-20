@@ -62,8 +62,6 @@ navegarComAtraso() {
 
       if (confirmSenhaData === senhaData) {
 
-        console.log(dados);
-
         this.http.post('http://localhost:8080/email/resetPassword',dados, {headers, responseType: 'text'}).subscribe({
           next:(response) => {
             console.log(response);
