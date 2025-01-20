@@ -1,0 +1,76 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.cabecalho {
+  display: flex;
+  align-items: center; /* Centraliza o conteúdo verticalmente */
+  justify-content: space-between; /* Distribui os itens */
+  padding: 0 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.cabecalhoh1 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem; /* Tamanho responsivo */
+  margin: 20px;
+  margin-left: 50px;
+}
+
+.usuarioheader {
+  margin: 20px;
+  margin-left: 1000px;
+  text-align: end;
+  font-weight: 600;
+  background-color: #5665FF;
+  padding: 10px 35px;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+
+.deslogar {
+  text-decoration: none;
+  border: none;
+  font-weight: 600;
+  margin-right: 10px;
+  background-color: white;
+}
+
+.titulo {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 64px;
+  margin-left: 50px;
+  margin: 0;
+}
+
+.paragrafo1 {
+  margin-left: 50px;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+}
+
+.conteiner {
+  display: flex;
+  justify-content: space-between; /* Garante que o conteúdo ocupe o máximo de espaço possível */
+  align-items: flex-start; /* Alinha ao topo */
+  padding: 20px; /* Adiciona espaçamento ao redor */
+  position: relative; /* Adicionando position: relative */
+}
+
+.medico {
+  background-image: url(./assets/medico.png);
+  height: 400px;
+  width: 700px;
+  background-size: contain; /* Ajusta a imagem para cobrir o contêiner */
+  background-repeat: no-repeat; 
+  position: absolute;
+
+}
+
+

@@ -53,6 +53,7 @@ export class LandingPageComponent {
         next: (response) => {
           this.authService.setToken(response)
           this.router.navigate(['/home']);
+          localStorage.setItem('emailat', loginData.email);
           console.log(this.authService.getToken()); // O token será recebido como texto
         },
         error: (error) => {
