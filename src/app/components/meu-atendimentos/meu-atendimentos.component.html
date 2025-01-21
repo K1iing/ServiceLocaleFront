@@ -1,0 +1,7 @@
+@for (item of atendimentos; track $index) {
+    <h1>{{item.profissional.nome}}</h1>
+    <h2>{{item.profissional.especialidade}}</h2>
+    <h2>{{item.dataAtendimento}}</h2>
+    <h3>{{item.status_atendimentos}}</h3>
+    <h4>{{item.descricao}}</h4>
+}

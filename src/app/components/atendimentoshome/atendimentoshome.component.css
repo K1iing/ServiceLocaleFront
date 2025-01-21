@@ -30,7 +30,10 @@ body {
   padding: 10px 35px;
   border-radius: 20px;
   flex-shrink: 0;
+  
 }
+
+
 
 .deslogar {
   text-decoration: none;
@@ -65,12 +68,59 @@ body {
 
 .medico {
   background-image: url(./assets/medico.png);
-  height: 400px;
-  width: 700px;
+  height: 645px;
+  width: 845px;
+  margin-left: 400px;
   background-size: contain; /* Ajusta a imagem para cobrir o contêiner */
   background-repeat: no-repeat; 
   position: absolute;
-
+  z-index: 3;
+  margin-top: 50px;
+}
+.pedreiro {
+  background-image: url(./assets/pedreiro.png);
+  height: 354px;
+  width: 503px;
+  margin-top: 259px;
+  margin-left: 830px;
+  background-size: cover; /* Ajusta a imagem para cobrir o contêiner */
+  background-repeat: no-repeat; 
+  position: absolute;
+  z-index: 2;
+}
+.pintor {
+  background-image: url(./assets/pintor.png);
+  height: 454px;
+  width: 503px;
+  margin-top: 20px;
+  margin-left: 770px;
+  background-size: cover; /* Ajusta a imagem para cobrir o contêiner */
+  background-repeat: no-repeat; 
+  position: absolute;
+  z-index: 1;
 }
 
 
+.butaoatendimentos {
+  text-decoration: none;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  color: black;
+  background-color: #5665FF;
+  padding: 15px 80px;
+  position: absolute;
+  margin-top: 35px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+}
+
+.butaoatendimentos:hover {
+
+  color: white;
+  background-color: black;
+}
+
+  
