@@ -1,7 +1,28 @@
-@for (item of atendimentos; track $index) {
-    <h1>{{item.profissional.nome}}</h1>
-    <h2>{{item.profissional.especialidade}}</h2>
-    <h2>{{item.dataAtendimento}}</h2>
-    <h3>{{item.status_atendimentos}}</h3>
-    <h4>{{item.descricao}}</h4>
-}
+<div class="background">
+<div class="container">
+    <table class="tabela">
+<thead>
+    <tr class="caixa">
+        <th>Profissional</th>
+        <th>Especialidade</th>
+        <th>Data do Atendimento</th>
+        <th>Status</th>
+        <th>Descrição</th>
+    </tr>
+</thead>
+<tbody>
+    @for (item of atendimentos; track $index) {
+        <tr>
+            <td>{{item.profissional.nome}}</td>
+            <td>{{item.profissional.especialidade}}</td>
+            <td>{{item.dataAtendimento}}</td>
+            <td>{{item.status_atendimentos}}</td>
+            <td class="descricao">{{item.descricao}}</td>
+        </tr>
+    }
+</tbody>
+    
+    </table>
+    
+</div>
+</div>

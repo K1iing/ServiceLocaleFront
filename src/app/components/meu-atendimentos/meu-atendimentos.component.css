@@ -1,0 +1,59 @@
+.background {
+    background-image: url("./assets/Bg.png"); /* Imagem de fundo */
+    width: 100%;
+    min-height: 100vh; /* Cobrir a altura total da tela */
+    background-attachment: fixed;
+    background-size: cover; /* Cobre toda a área */
+    background-position: center; /* Centraliza a imagem */
+    display: flex; /* Flexbox para centralizar */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    overflow: hidden;
+  }
+
+.caixa {
+    border: 1px solid #ddd; 
+}
+
+/* Estilo para as células de dados */
+th, td {
+    background-color: white;
+    padding: 10px 20px; 
+    font-family: 'Inter', sans-serif;
+    color: black; /* Cor de fundo para as células de dados */
+}   
+
+td {
+    border: 1px solid #ddd; 
+
+}
+.descricao {
+    word-wrap: break-word; /* Faz a quebra de linha dentro da célula */
+    word-break: break-word; 
+    white-space: normal;
+}
+
+.container {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    width: 100%;
+    font-size: 20px;
+    
+}
+
+.itens {
+    border: 1px solid black;
+}
+
+.botaoservico {
+    text-decoration: none;
+    border: none;
+    background-color:#5665FF;
+    padding: 10px 10px;
+    font-family: 'Inter', sans-serif;
+    border-radius: 10px;
+    font-weight: 600;
+    color: black;
+}
+

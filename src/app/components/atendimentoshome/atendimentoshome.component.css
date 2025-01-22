@@ -117,10 +117,127 @@ body {
   
 }
 
+.butaoagendar {
+  text-decoration: none;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  color: black;
+  background-color: #5665FF;
+  padding: 15px 80px;
+  position: absolute;
+  margin-top: 100px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.butaoagendar:hover {
+  color: white;
+  background-color: black;
+}
+
+
 .butaoatendimentos:hover {
 
   color: white;
   background-color: black;
 }
 
+.bloco {
+  background-color: #5665FF;
+  border-radius: 10px;
+  height: 100px;
+  width: 503px;
+  margin-top: 602px;
+  margin-left: 710px;
+  background-size: cover; /* Ajusta a imagem para cobrir o contêiner */
+  background-repeat: no-repeat; 
+  position: absolute;
+  z-index: 5;
+}
+
+
+
+
+
+@media (min-width: 360px) and (max-width: 768px) {
+  .titulo {
+    font-size: 35px;
+    margin-top: 40px;
+    margin-left: 5px;
+  }
+  .cabecalhoh1 {
+    font-size: 40px;
+  }
+  .usuarioheader {
+    position: absolute;
+    margin-left: 150px;
+    
+  }
+  .deslogar {
+    margin-top: 25px;
+    margin-left: 30px;
+  }
   
+  .medico, .pedreiro, .pintor, .bloco {
+    display: none; 
+  }
+  .cabecalho {
+    flex-direction: column; 
+    align-items: flex-start; 
+  }
+
+  .butaoagendar {
+    font-size: 18px;
+  }
+  .butaoatendimentos {
+    font-size: 17px;
+  }
+  .paragrafo1 {
+    margin-left: 5px;
+  }
+  
+  
+}
+@media (min-width: 768px) and (max-width: 820px) {
+  .titulo {
+    font-size: 35px;
+    margin-top: 40px;
+    margin-left: 5px;
+  }
+  .cabecalhoh1 {
+    font-size: 40px;
+  }
+  .usuarioheader {
+    position: absolute;
+    margin-left: 150px;
+    
+  }
+  .deslogar {
+    margin-top: 25px;
+    margin-left: 30px;
+  }
+  
+  .medico, .pedreiro, .pintor, .bloco {
+    display: none; 
+  }
+  .cabecalho {
+    flex-direction: column; 
+    align-items: flex-start; 
+  }
+
+  .butaoagendar {
+    font-size: 18px;
+  }
+  .butaoatendimentos {
+    font-size: 17px;
+  }
+  .paragrafo1 {
+    margin-left: 5px;
+    font-size: 17px;
+  }
+  
+}
+
+
