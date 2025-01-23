@@ -17,6 +17,10 @@ export class AtendimentoshomeComponent {
 
   nome: string = ""
 
+  agendarAtendimentos() {
+    this.router.navigate(['/agendar'])
+  }
+
 
   enviarMeusAtendimentos() {
     this.router.navigate(['/meusatendimentos']);

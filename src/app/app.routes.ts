@@ -7,6 +7,7 @@ import { EsquecisenhaComponent } from './components/esquecisenha/esquecisenha.co
 import { TokentrueComponent } from './components/tokentrue/tokentrue.component';
 import { NewpasswordComponent } from './components/newpassword/newpassword.component';
 import { MeuAtendimentosComponent } from './components/meu-atendimentos/meu-atendimentos.component';
+import { AgendaratendimentoComponent } from './components/agendaratendimento/agendaratendimento.component';
 
 export const routes: Routes = [
   {
@@ -15,8 +16,14 @@ export const routes: Routes = [
     canActivate: [authGuard],
   },
   {
+    path: 'agendar',
+    component: AgendaratendimentoComponent,
+    canActivate: [authGuard],
+  },
+  {
     path: 'meusatendimentos',
     component: MeuAtendimentosComponent,
+    canActivate: [authGuard],
   },
   {
     path: 'cadastrar',

@@ -1,13 +1,9 @@
 .background {
-    background-image: url("./assets/Bg.png"); /* Imagem de fundo */
+    background-image: url(./assets/Bg.png); /* Imagem de fundo */
     width: 100%;
-    min-height: 100vh; /* Cobrir a altura total da tela */
     background-attachment: fixed;
     background-size: cover; /* Cobre toda a área */
-    background-position: center; /* Centraliza a imagem */
-    display: flex; /* Flexbox para centralizar */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
+    background-position: center;
     overflow: hidden;
   }
 
@@ -35,12 +31,26 @@ td {
 
 .container {
     display: flex;
+    flex-direction: column; /* Alinha o conteúdo verticalmente */
     justify-content: center; /* Centraliza horizontalmente */
     align-items: center; /* Centraliza verticalmente */
     width: 100%;
     font-size: 20px;
+    min-height: 100vh; /* Cobrir a altura total da tela */
+    overflow: hidden;
+  }
+.titulo-container {
+    text-align: center;
+    margin-bottom: 20px; 
     
-}
+  }
+
+.titulo {
+    font-size: 2em;
+    color: white; /* Cor do título */
+    font-family: 'Poppins', sans-serif;
+    
+  }
 
 .itens {
     border: 1px solid black;
@@ -55,5 +65,38 @@ td {
     border-radius: 10px;
     font-weight: 600;
     color: black;
+}
+
+.cancelar {
+    border: 1px solid #ddd; 
+    background-color: white;
+    padding: 10px 20px; 
+    font-family: 'Inter', sans-serif;
+    color: black; /* Cor de fundo para as células de dados */
+    transition: all 0.3s ease;
+    word-wrap: break-word; /* Faz a quebra de linha dentro da célula */
+    word-break: break-word; 
+    white-space: normal;
+}   
+.cancelar:hover {
+    color: white;
+    background-color: RED;
+}
+
+.home {
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    border: none;
+    color: black;
+    background-color: #5665FF;
+    padding: 5px 55px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    
+}
+
+.home:hover {
+background-color: black;
+color: white;
 }
 

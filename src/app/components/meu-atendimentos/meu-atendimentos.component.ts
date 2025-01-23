@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { AuthService } from '../../auth.service';
 import { Atendimento } from './Atendimento';
 
@@ -10,7 +10,7 @@ import { Atendimento } from './Atendimento';
   styleUrl: './meu-atendimentos.component.css',
 })
 export class MeuAtendimentosComponent {
-  constructor(private http: HttpClient, private auth: AuthService) {}
+  constructor(private http: HttpClient, private auth: AuthService, private changeDetector: ChangeDetectorRef) {}
 
   atendimentos: Atendimento[] = [];
 
@@ -28,6 +28,7 @@ export class MeuAtendimentosComponent {
         next: (response) => {
           console.log(response);
           this.atendimentos = response;
+          this.changeDetector.detectChanges();
 
         },
         
@@ -35,6 +36,30 @@ export class MeuAtendimentosComponent {
           console.log(response);
         },
       });
+  }
+
+  cancelar(id: number): void {
+    const token = this.auth.getToken();
+
+    console.log("Cancelando atendimento com ID: ", id);
+    const cancelar = {
+      status: "CANCELADO"
+    }; 
+
+    this.http.post(`http://localhost:8080/atendimentos/alterar/${id}`, cancelar, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+         'Content-Type': 'application/json',
+      },
+    }).subscribe({
+      next: (response) => {
+        console.log(response);
+        this.receberAtendimentos();
+      },
+      error: (response) => {
+        console.log(response);
+      }
+    })
   }
 
   ngOnInit() {
