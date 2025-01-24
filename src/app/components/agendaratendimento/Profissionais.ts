@@ -1,4 +1,5 @@
 export interface Profissionais {
     nome: string,
-    especialidade: string
+    especialidade: string,
+    id: number
 }

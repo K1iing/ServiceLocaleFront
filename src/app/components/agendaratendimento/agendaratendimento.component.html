@@ -1,5 +1,39 @@
-<p>agendaratendimento works!</p>
-@for (item of profissionais; track $index) {
-    <h1>{{item.nome}}</h1>
-    <h2>{{item.especialidade}}</h2>
-}
+<div class="background">
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="testarAgendamento()">
+    <h1 class="titulo">Agendar Atendimento</h1>
+    
+    <!-- Tabela de agendamento -->
+    <table class="tabela">
+      <thead>
+        <tr>
+          <th>Profissional</th>
+          <th>Data do Atendimento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <select [formControlName]="'selecao'" name="profissional" required>
+              @for (item of profissionais; track $index)   {
+              <option  [value]="item.id">{{ item.nome  }} | {{item.especialidade}}</option>
+            }
+            </select>
+          </td>
+          <td>
+            <input [formControlName]="'data'" class="data" type="datetime-local"  name="dataAtendimento" required />
+          </td>
+        </tr>
+        
+      </tbody>
+      
+    </table>
+    <div>
+        <textarea [formControlName]="'descricao'" class="descricao"  name="descricao" placeholder="Descreva o atendimento..." required></textarea>
+        </div>
+        <div>
+        <button>Agendar</button>
+        </div>
+        </form>
+  </div>
+</div>

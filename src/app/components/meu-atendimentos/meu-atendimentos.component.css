@@ -100,3 +100,91 @@ background-color: black;
 color: white;
 }
 
+
+@media (min-width: 375px) and (max-width: 414px) {
+    .tabela {
+        width: 100%;
+        max-height: 500px;
+        overflow-y: auto;
+       
+    }
+    td, th {
+        
+        font-size: 5px;
+
+    }
+    .descricao {
+        font-size: 7px;
+    }
+    .cancelar {
+        padding: 0;
+        font-size: 20px;
+    }
+  }@media (max-width: 375px)  {
+    .tabela {
+        width: 100%;
+        max-width: 100%; /* Garante que a tabela não ultrapasse o tamanho do container */
+        overflow-x: auto; /* Permite rolagem horizontal, se necessário */
+    }
+    td, th {
+        padding: 5px 10px; /* Reduz os espaçamentos internos */
+        font-size: 5px; /* Tamanho da fonte para telas pequenas */
+        white-space: nowrap; /* Impede quebras de linha */
+        overflow: hidden; /* Esconde o texto excedente */
+        text-overflow: ellipsis; /* Adiciona reticências ao texto cortado */
+    }
+    .descricao {
+        font-size: 5px;
+    }
+    .cancelar {
+        padding: 5px 10px; /* Ajusta o botão de cancelar */
+        font-size: 10px;
+    }
+
+}
+@media (max-width: 412px) {
+    .tabela {
+        width: 100%;
+        max-width: 100%; /* Garante que a tabela não ultrapasse o tamanho do container */
+        overflow-x: auto;
+         /* Permite rolagem horizontal, se necessário */
+    }
+    td, th {
+        padding: 5px 10px; /* Reduz os espaçamentos internos */
+        font-size: 7px; /* Tamanho da fonte para telas pequenas */
+        white-space: nowrap; /* Impede quebras de linha */
+        overflow: hidden; /* Esconde o texto excedente */
+        text-overflow: ellipsis; /* Adiciona reticências ao texto cortado */
+    }
+    .descricao {
+        font-size: 7px;
+    }
+    .cancelar {
+        padding: 5px 10px; /* Ajusta o botão de cancelar */
+        font-size: 8px;
+    }
+   .container {
+    justify-content: flex-start; /* Centraliza horizontalmente */
+    align-items: flex-start; /* Centraliza verticalmente */
+   }
+   
+    
+}
+
+@media(min-width: 360px) and (max-width: 375px) {
+
+    td, th {
+        padding: 5px 5px; /* Reduz os espaçamentos internos */
+        font-size: 7px; /* Tamanho da fonte para telas pequenas */
+        white-space: nowrap; /* Impede quebras de linha */
+        overflow: hidden; /* Esconde o texto excedente */
+        text-overflow: ellipsis; /* Adiciona reticências ao texto cortado */
+    }
+    .descricao {
+        font-size: 7px;
+    }
+    .cancelar {
+        padding: 5px 10px; /* Ajusta o botão de cancelar */
+        font-size: 5px;
+    }
+} 
