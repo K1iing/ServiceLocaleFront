@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { AuthService } from '../../auth.service';
 import { Profissionais } from './Profissionais';
@@ -6,7 +6,7 @@ import { FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators, } from '@angular/forms';
-
+import moment from 'moment'; 
 
 @Component({
   selector: 'app-agendaratendimento',
@@ -17,9 +17,13 @@ import { FormControl,
 export class AgendaratendimentoComponent {
   profissionais: Profissionais[] = [];
   listaVisivel = false;
-  profissionalId: number | null = null
+  profissionalId: number | null = null;
+  nopassado = false;
+
 
   public form: FormGroup;
+  erro = false;
+  sucesso = false;
 
   constructor(private http: HttpClient, private auth: AuthService) {
     this.form = new FormGroup({
@@ -47,15 +51,54 @@ export class AgendaratendimentoComponent {
     })
   }
 
+  formatarData(data: string): string {
+    return moment(data).format('DD/MM/YYYY HH:mm:ss');
+  }
+
+  formularioLimpar() {
+    this.form.reset();
+  }
+
+ 
 
   testarAgendamento() {
     const infoData = {
       idProfissional: this.form.get('selecao')?.value,
-      dataAgendada: this.form.get('data')?.value, 
+      dataAgendada: this.formatarData(this.form.get('data')?.value), 
       descricao: this.form.get('descricao')?.value 
     };
 
-    console.log(infoData);
+    const dataAgora = moment();
+   
+    const dataAtendimento = moment(infoData.dataAgendada, 'DD/MM/YYYY HH:mm:ss');
+    
+
+
+    if(dataAtendimento.isBefore(dataAgora, 'minute')) {
+      console.log("A data agendada não pode ser no passado.");
+      this.nopassado = true;
+      this.erro = false;
+      this.sucesso = false;
+      return;
+    } 
+
+    const token = this.auth.getToken();
+
+    this.http.post("http://localhost:8080/atendimentos", infoData, {headers: {
+      'Authorization': `Bearer ${token}`
+    }}).subscribe({
+      next: (response) => {
+        console.log(response)
+        this.formularioLimpar();
+        this.sucesso = true;
+      },
+      error: (response) => {
+        console.log(response)
+        this.erro = true;
+        this.nopassado = false;
+        this.sucesso = false;
+      }  
+    })
   }
 
   ngOnInit() {

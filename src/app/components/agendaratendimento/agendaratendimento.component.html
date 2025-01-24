@@ -1,8 +1,17 @@
 <div class="background">
 <div class="container">
+  <a href="/home" class="home">Voltar para Atendimentos</a>
   <form [formGroup]="form" (ngSubmit)="testarAgendamento()">
     <h1 class="titulo">Agendar Atendimento</h1>
-    
+    @if (erro) {
+      <p class="paragrafo1">Campos Invalidos!</p>
+    }
+    @if (nopassado) {
+      <p class="paragrafo2">Data tem que estar no futuro!</p>
+    }
+    @if (sucesso) {
+      <p class="paragrafo3">Agendamento realizado com sucesso!</p>
+    }
     <!-- Tabela de agendamento -->
     <table class="tabela">
       <thead>
@@ -32,7 +41,7 @@
         <textarea [formControlName]="'descricao'" class="descricao"  name="descricao" placeholder="Descreva o atendimento..." required></textarea>
         </div>
         <div>
-        <button>Agendar</button>
+        <button class="botao">Agendar</button>
         </div>
         </form>
   </div>
