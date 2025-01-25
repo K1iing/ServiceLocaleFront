@@ -59,7 +59,24 @@ export class AgendaratendimentoComponent {
     this.form.reset();
   }
 
- 
+  enviarEmail() {
+
+    const token = this.auth.getToken();
+    const email = {
+      email: localStorage.getItem("emailat")
+    }
+
+    this.http.post("http://localhost:8080/email/postConfirmationAtendimento", email, {headers: {
+      'Authorization': `Bearer ${token}`
+    }}).subscribe({
+        next: (response) => {
+          console.log(response + "Email Enviado");
+        },
+        error: (response) => {
+          console.log(response + "Não enviado");
+        }
+    })
+  }
 
   testarAgendamento() {
     const infoData = {
@@ -83,14 +100,22 @@ export class AgendaratendimentoComponent {
     } 
 
     const token = this.auth.getToken();
+    const email = localStorage.getItem("emailat")
 
     this.http.post("http://localhost:8080/atendimentos", infoData, {headers: {
       'Authorization': `Bearer ${token}`
     }}).subscribe({
       next: (response) => {
+
+
+
         console.log(response)
         this.formularioLimpar();
         this.sucesso = true;
+        this.erro = false;
+        this.nopassado = false;
+        this.enviarEmail()
+
       },
       error: (response) => {
         console.log(response)
